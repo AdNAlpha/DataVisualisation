@@ -1,0 +1,65 @@
+	<!DOCTYPE html>
+	<html lang="en">
+
+	<head>
+		<meta charset="UTF-8"/>
+		<meta name="description"	content="Data Visualisation Exercise 1"/>
+		<meta name="keywords"		  content="HTML, CSS"/>
+		<meta name="author"			  content="Adnaan Ayaz Shaikh"/>
+
+		<title>Task 2.1 D3 Data Binding</title>
+		<!--Insert description of exercise  -->
+		<script src="https://d3js.org/d3.v7.min.js"></script>
+
+		<style>
+		
+		</style>
+		<link rel="stylesheet" href="Styles/stylesheet.css">   
+
+	</head>
+
+	<body>
+		<header><nav>
+			<ul id="navbar">
+				<li><a href="/Home.html">Home</a></li>
+				<li><a href="lab 2-1.html">Lab2.1</a></li>
+				<li><a href="lab2-2.html">Lab2.2</a></li>
+				<li><a href="lab 2-3.html">Lab2.3</a></li>
+				<li><a href="lab2-4.html">Lab2.4</a></li>
+				</ul>		
+		</nav>
+		</header>
+
+		<h1><b>The D3 journey starts here...</b></h1>
+		<script>
+			var dataset = [14, 5, 26, 23, 9];
+
+
+			d3.select("body").selectAll("p")
+			.data(dataset)
+			.enter()
+			.append("p")
+			.style("color", function(d) {if (d > 10){return "red"}})
+			.text(function(d) 
+			{
+				if(d > 10){
+					return "warning: Joe watched " + d + " cat videos today.";
+				}
+				else{
+					return "Joe watched " + d + " cat videos today.";
+				}
+			});
+			console.log(d3.selecAll("p"));
+		
+		</script>
+		<br>
+		<bf>
+			
+		<footer>
+			COS30045 Data Visualisation
+			<br>
+			Adnaan Shaikh
+		</footer>
+
+	</body>
+	</html>

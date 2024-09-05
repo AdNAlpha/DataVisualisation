@@ -1,0 +1,119 @@
+body {
+    background: rgb(238,174,202);
+    background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+    font-family: Arial, sans-serif; 
+    margin: 0 auto;
+    max-width: 1220px; /* Center content by limiting the max width */
+    padding: 20px; 
+    box-shadow: 0 0 0 1px #ffffff inset;
+}
+
+header {
+    padding: 0 0 30px; 
+}
+
+nav ul {
+    padding: 0; 
+    margin: 0; 
+}
+
+nav ul li {
+    list-style: none;
+    float: left;
+    font-size: 130%;
+     
+}
+
+/*Navbar and Nav */
+nav ul li a {
+    display: block;
+    font-weight: bold;
+    padding: 10px 15px; /* Adjust padding to create spacing around links */
+    color: #000;
+}
+#navbar a {
+    text-decoration: none;
+    color: black;
+    display: inline-block;
+}
+#navbar a:hover {
+    border-radius: 19px;
+    background-color: #39393929;
+    color:rgb(0, 255, 251);
+    transition: background-color 0.3s, transform 0.4s, color 0.3s, border-color 0.3s;
+    transform: scale(1.13);
+    
+}
+
+h1 {
+    color: rgba(106, 0, 255, 0.822);
+    text-shadow: 0 0 25px rgb(0, 255, 251), 0 5px rgb(0, 0, 7);
+    font-family: Arial, sans-serif;
+    font-size: 50px;
+    margin-top: 20px; /* Add margin to the top of h1 to create space between the header */
+    text-align: Left;
+}
+
+h2 {
+    color: rgba(106, 0, 255, 0.822);
+    text-shadow: 0 0 25px rgb(0, 255, 251);
+    font-family: Arial, sans-serif;
+    font-size: 35px;
+    text-align: Left;   
+}
+
+footer {
+    clear: both;
+    font-size: 25px;
+    background-color: #393939;
+    padding: 0.5em 0;
+    background-repeat: repeat-x;
+    background-position: bottom;
+    color: white;
+}
+
+img {
+    max-width: 100%;
+}
+
+#figure1, #figure2, #figure3 {
+    float: left;
+    width: 30%;
+    text-align: justify;
+    margin: 0 10px; /* Adjust margin to control space between images */
+    padding: 10px;
+}
+p {
+    clear: both;
+    font-size: 25px;
+    color: white;
+    
+}
+
+#points {
+    font-size: 20px;
+    color: white;
+}
+
+/* Button Styles */
+button {
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    padding: 10px 20px;
+    border: 2px solid gray; 
+    border-radius: 19px; 
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s, color 0.3s, border-color 0.3s;
+    color: gray; /* Default text color */
+    text-align: center;
+    background-color: transparent; /* Transparent background to highlight the border */
+    margin: 0 2px;
+}
+
+/* Hover Effect for All Buttons */
+button:hover {
+    border-color:rgb(0, 255, 251); 
+    color:rgb(0, 255, 251); 
+    transform: scale(1.15); /* Slightly enlarge on hover */
+    background-color: rgba(128, 128, 128, 0.327); 
+}
