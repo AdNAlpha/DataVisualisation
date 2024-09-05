@@ -7,7 +7,7 @@
     <meta name="keywords"		  content="HTML, CSS"/>
     <meta name="author"			  content="Adnaan Ayaz Shaikh"/>
 
-    <title>Task 3.1 D3 Data scaling</title>
+    <title>Task 3.1 D3 Chart Axis</title>
     <!--Insert description of exercise  -->
     <script src="https://d3js.org/d3.v7.min.js"></script>
 
@@ -28,7 +28,7 @@
     </nav>
     </header>
 
-    <h1><b>Drawing with Data - scaling Scatter Plot</b></h1>
+    <h1><b>Drawing with Data - Axis scales</b></h1>
     <br>
         <script>
             var w = 800;
@@ -51,25 +51,34 @@
                         var xScale = d3.scaleLinear()
                                         .domain([d3.min(dataset, function(d){
                                          return d[0];   
-                                        }),
+                                        }) - 20,
                                         d3.max(dataset, function(d){
                                             return d[0];
-                                        })])
+                                        }) + 20])
                                         .range([padding, w- padding]);
 
                         var yScale = d3.scaleLinear()
                                         .domain([d3.min(dataset, function(d){
                                             return d[1];
-                                        }),
+                                        }) - 10,
                                         d3.max(dataset, function(d){
                                             return d[1];
-                                        })])
+                                        }) + 10])
                                         .range([padding, h -padding])
                         
                         var svg = d3.select("body")
-                        .append("svg")
-                        .attr("width", w)
-                        .attr("height", h)
+                                    .append("svg")
+                                    .attr("width", w)
+                                    .attr("height", h)
+
+                        var xAxis = d3.axisBottom()
+                                      .ticks(15)
+                                      .scale(xScale);
+                                    
+                        var yAxis = d3.axisLeft()
+                                      .ticks(10)
+                                      .scale(yScale);
+
 
             svg.selectAll("circle")
                 .data(dataset)
@@ -92,10 +101,17 @@
                 return xScale(d[0]);})
 
             .attr("y", function(d) {
-                return yScale(d[1]+7);})
+                return yScale(d[1]- 5);})
 
             .attr("font-size", "13px")
+        
+            svg.append("g")
+            .attr("transform", "translate(0, "+ (h - padding) +")")
+            .call(xAxis);
 
+            svg.append("g")
+            .attr("transform", "translate("+ padding + ",0)")
+            .call(yAxis);
 
         </script>
     <br>
