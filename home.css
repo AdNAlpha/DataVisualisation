@@ -17,22 +17,43 @@ article {
 }
 
 header {
-    padding: 5px;
+    /*padding: 5px;
     background-color: rgba(128, 128, 128, 0.327); 
     border-radius: 30px; background-color: rgba(128, 128, 128, 0.327);
     border-color: black;
-    border-style: solid; 
+    border-style: solid;*/
+    position: absolute; /* Use absolute positioning */
+    top: 0; /* Align to top of the viewport */
+    left: 0; /* Align to left of the viewport */
+    width: 100%; /* Full width of the viewport */
+    padding: 5px;
+    background-color: rgba(128, 128, 128, 0.327);
+    border: none; /* Remove border styles */
+    margin: 0; /* Remove margins */
+    box-sizing: border-box; /* Include padding in width calculation */
 }
 
 footer{
-    clear: both;
+    /*clear: both;
     padding: 30px;
     text-align: center;
     font-style: italic;
     font-weight: bold;
     border-radius: 30px; background-color: rgba(128, 128, 128, 0.327); 
     border-color: black;
-    border-style: solid;
+    border-style: solid;*/
+    position: absolute; /* Use absolute positioning */
+    bottom: 0; /* Align to bottom of the viewport */
+    left: 0; /* Align to left of the viewport */
+    width: 100%; /* Full width of the viewport */
+    padding: 30px;
+    text-align: center;
+    font-style: italic;
+    font-weight: bold;
+    background-color: rgba(128, 128, 128, 0.327);
+    border: none; /* Remove border styles */
+    margin: 0; /* Remove margins */
+    box-sizing: border-box; /* Include padding in width calculation */
     
 }
 
@@ -72,9 +93,10 @@ ul li a {
     
 }
 
-#lab1{
+#lab1, #lab2, #lab3, #lab4{
     background-color: rgba(128, 128, 128, 0.327);
     border-radius: 30px;
-    padding: 50px;
-
+    padding: 20px;
+    margin: 20px auto;
+    width: 70%;
 }

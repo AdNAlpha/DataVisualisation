@@ -63,12 +63,13 @@ h2 {
 
 footer {
     clear: both;
-    font-size: 25px;
+    font-size: 15px;
     background-color: #393939;
-    padding: 0.5em 0;
+    padding: 35px;
     background-repeat: repeat-x;
     background-position: bottom;
     color: white;
+    position: relative;
 }
 
 img {
