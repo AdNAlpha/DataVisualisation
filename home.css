@@ -2,9 +2,11 @@ body {
     background: rgb(172,195,242);
     background: radial-gradient(circle, rgba(172,195,242,1) 72%, rgba(254,159,201,1) 100%);
     font-family: Arial, sans-serif; 
-    margin: 0 auto;
-    max-width: 1220px; /* Center content by limiting the max width */
-    padding: 20px; 
+    margin: 0;
+    max-width: 100%; /* Center content by limiting the max width */
+    padding: 0px;
+    overflow-x: hidden;
+
     
 }
 
@@ -14,48 +16,32 @@ article {
     padding: 30px 0 30px;
     border-color: black;
     border-style: solid;
+    width: 60%;
+    margin: 20px auto;
 }
 
 header {
-    /*padding: 5px;
-    background-color: rgba(128, 128, 128, 0.327); 
-    border-radius: 30px; background-color: rgba(128, 128, 128, 0.327);
-    border-color: black;
-    border-style: solid;*/
-    position: absolute; /* Use absolute positioning */
-    top: 0; /* Align to top of the viewport */
-    left: 0; /* Align to left of the viewport */
-    width: 100%; /* Full width of the viewport */
-    padding: 5px;
+    position: relative; /* Ensure it's part of the document flow */
+    width: 100vw; /* Make it span the entire width of the viewport */
+    padding: 10px;
     background-color: rgba(128, 128, 128, 0.327);
-    border: none; /* Remove border styles */
-    margin: 0; /* Remove margins */
-    box-sizing: border-box; /* Include padding in width calculation */
+    text-align: center;
+    box-sizing: border-box;
+    
 }
 
 footer{
-    /*clear: both;
-    padding: 30px;
-    text-align: center;
-    font-style: italic;
-    font-weight: bold;
-    border-radius: 30px; background-color: rgba(128, 128, 128, 0.327); 
-    border-color: black;
-    border-style: solid;*/
-    position: absolute; /* Use absolute positioning */
-    bottom: 0; /* Align to bottom of the viewport */
-    left: 0; /* Align to left of the viewport */
-    width: 100%; /* Full width of the viewport */
-    padding: 30px;
+    position: relative; /* Ensure it's part of the document flow */
+    width: 100vw; /* Make it span the entire width of the viewport */
+    padding: 20px;
     text-align: center;
     font-style: italic;
     font-weight: bold;
     background-color: rgba(128, 128, 128, 0.327);
-    border: none; /* Remove border styles */
-    margin: 0; /* Remove margins */
-    box-sizing: border-box; /* Include padding in width calculation */
-    
+    box-sizing: border-box;
+
 }
+
 
 h1 {
     text-align: center;
