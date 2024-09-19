@@ -95,20 +95,6 @@ function axes(svg, xAxis, yAxis, w, h, padding) {
         .attr("transform", "translate(" + padding + ",0)")
         .call(yAxis);
 
-    // X-Axis Label
-    svg.append("text")
-        .attr("text-anchor", "middle")
-        .attr("x", w / 2) // Center horizontally
-        .attr("y", h - 5) // Adjust below the axis
-        .text("Tree Age (Year)");
-
-    // Y-Axis Label
-    svg.append("text")
-        .attr("text-anchor", "middle")
-        .attr("x", -(h / 2)) // Center vertically
-        .attr("y", 15) // Adjust position
-        .attr("transform", "rotate(-90)") // Rotate for Y-axis
-        .text("Tree Height (m)");
 }
 
 window.onload = init;
