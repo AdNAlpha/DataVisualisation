@@ -1,91 +1,114 @@
-function init(){
-    
+function init() {
+
     var w = 800;
     var h = 300;
     var padding = 40;
 
     var dataset = [
-                    [5,20],
-                    [500, 90],
-                    [250, 50],
-                    [100, 33],
-                    [330, 95],
-                    [410, 12], 
-                    [475, 44],
-                    [25, 67],
-                    [85, 21],
-                    [220, 88]
-                    ];
-    
+        [2, 8],
+        [3, 5],
+        [5, 17],
+        [6, 6],
+        [6, 12],
+        [7, 20],
+        [8, 22],
+        [10, 11],
+        [5, 12],
+        [6, 16]
+    ];
 
     var xScale = d3.scaleLinear()
-                    .domain([d3.min(dataset, function(d){
-                     return d[0];   
-                    }) - 20,
-                    d3.max(dataset, function(d){
-                        return d[0];
-                    }) + 20])
-                    .range([padding, w- padding]);
+        .domain([d3.min(dataset, function(d) {
+                return d[0];
+            }) - 2,
+            d3.max(dataset, function(d) {
+                return d[0];
+            }) + 2
+        ])
+        .range([padding, w - padding]);
 
     var yScale = d3.scaleLinear()
-                    .domain([d3.min(dataset, function(d){
-                        return d[1];
-                    }) - 10,
-                    d3.max(dataset, function(d){
-                        return d[1];
-                    }) + 10])
-                    .range([padding, h -padding])
-    
+        .domain([d3.min(dataset, function(d) {
+                return d[1];
+            }) - 5,
+            d3.max(dataset, function(d) {
+                return d[1];
+            }) + 5
+        ])
+        .range([h - padding, padding]);
+
     var svg = d3.select("body")
-                .append("svg")
-                .attr("width", w)
-                .attr("height", h)
+        .append("svg")
+        .attr("width", w)
+        .attr("height", h);
 
-    //Axes
-
-        var xAxis = d3.axisBottom()
-        .ticks(15)
+    // Axes
+    var xAxis = d3.axisBottom()
+        .ticks(5)
         .scale(xScale);
 
     var yAxis = d3.axisLeft()
-        .ticks(10)
+        .ticks(5)
         .scale(yScale);
 
-    axes(svg, xAxis, yAxis, h, padding); //variable to axes function 
+    axes(svg, xAxis, yAxis, w, h, padding); // Pass w and h into axes function
 
+    // Circles for data points
     svg.selectAll("circle")
-    .data(dataset)
-    .enter()
-    .append("circle")
-    .attr("cx", function(d, i){ 
-        return xScale(d[0]);})
+        .data(dataset)
+        .enter()
+        .append("circle")
+        .attr("cx", function(d) {
+            return xScale(d[0]);
+        })
+        .attr("cy", function(d) {
+            return yScale(d[1]);
+        })
+        .attr("r", 6)
+        .attr("fill", "slategrey");
 
-    .attr("cy", function(d){
-        return yScale (d[1]);})
-    .attr("r", 6)
-    .attr("fill", "slategrey")
-
-    svg.selectAll("text")
-    .data(dataset)
-    .enter()
-    .append("text")
-    .text(function (d){return d[0] + "," +d[1];})
-    .attr("x", function (d) {
-        return xScale(d[0]);})
-
-    .attr("y", function(d) {
-        return yScale(d[1]- 5);})
-
-    .attr("font-size", "13px")
+    // Text labels for data points
+    svg.selectAll("text.data-label")
+        .data(dataset)
+        .enter()
+        .append("text")
+        .attr("class", "data-label")
+        .text(function(d) {
+            return d[0] + "," + d[1];
+        })
+        .attr("x", function(d) {
+            return xScale(d[0]);
+        })
+        .attr("y", function(d) {
+            return yScale(d[1]) - 10; // Position slightly above the circles
+        })
+        .attr("font-size", "13px");
 }
 
-function axes(svg, xAxis, yAxis, h, padding){
+// Axis lines and labels
+function axes(svg, xAxis, yAxis, w, h, padding) {
     svg.append("g")
-    .attr("transform", "translate(0," + (h - padding) + ")")
-    .call(xAxis);
+        .attr("transform", "translate(0," + (h - padding) + ")")
+        .call(xAxis);
 
-svg.append("g")
-    .attr("transform", "translate(" + padding + ",0)")
-    .call(yAxis);
+    svg.append("g")
+        .attr("transform", "translate(" + padding + ",0)")
+        .call(yAxis);
+
+    // X-Axis Label
+    svg.append("text")
+        .attr("text-anchor", "middle")
+        .attr("x", w / 2) // Center horizontally
+        .attr("y", h - 5) // Adjust below the axis
+        .text("Tree Age (Year)");
+
+    // Y-Axis Label
+    svg.append("text")
+        .attr("text-anchor", "middle")
+        .attr("x", -(h / 2)) // Center vertically
+        .attr("y", 15) // Adjust position
+        .attr("transform", "rotate(-90)") // Rotate for Y-axis
+        .text("Tree Height (m)");
 }
+
 window.onload = init;
