@@ -22,10 +22,9 @@
     <header><nav>
         <ul id="navbar">
             <li><a href="/index.html">Home</a></li>
-            <li><a href="/COS30045 Lab 2-1/lab 2-1.html">Lab2.1</a></li>
-            <li><a href="/COS30045 Lab 2-1/lab2-2.html">Lab2.2</a></li>
-            <li><a href="/COS30045 Lab 2-1/lab 2-3.html">Lab2.3</a></li>
-            <li><a href="/COS30045 Lab 2-1/lab2-4.html">Lab2.4</a></li>
+            <li><a href="/COS30045 Lab 5/lab5.1.html">Lab5.1</a></li>
+            <li><a href="/COS30045 Lab 5/lab5.2.html">Lab5.2</a></li>
+            <li><a href="/COS30045 Lab 5/lab5.3.html">Lab5.3</a></li>
             </ul>		
     </nav>
     </header>
@@ -37,6 +36,11 @@
         var barPadding = 3;
 
         var dataset = [14, 5, 26, 23, 9];
+
+        var xScale = d3.scaleBand()
+        .domain(d3.range(dataset.length))
+        .range ([0,w])
+        .paddingInner(0.05);
 
         var svg = d3.select("body")
                     .append("svg")
@@ -62,12 +66,6 @@
         .attr("x", function(d, i) { return i* (w/dataset.length) + 40;})
         .attr("y", function(d) {return h - (d*5)});
 
-
-
-        
-        
-       
-    
     </script>
     <br>
     <bf>
