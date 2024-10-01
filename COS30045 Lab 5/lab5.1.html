@@ -25,15 +25,15 @@
         </nav>
     </header>
 
-    <h1><b>Drawing with Data</b></h1>
-    <br><br>
-
+    <h1><b>Update Data</b></h1>
+    
     <!-- Update Button -->
-    <button id="updateButton">Update Data</button>
+    <button id="updateButton">Update</button>
 
     <script>
-        var w = 500;
-        var h = 250;
+        var margin = {top:20, right:20, bottom:20, left:40};
+        var w = 500 - margin.left - margin.right;
+        var h = 250 - margin.top - margin.bottom;
         var maxValue = 25; // Set maxValue for random number generation
         var barPadding = 3;
 
@@ -54,8 +54,10 @@
         // SVG container
         var svg = d3.select("body")
             .append("svg")
-            .attr("width", w)
-            .attr("height", h)
+            .attr("width", w + margin.left + margin.right)
+            .attr("height", h + margin.top + margin.bottom)
+            .append("g")
+            .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
             .attr("fill", "rgb(106, 90, 205)");
 
         // Function to draw the bars
@@ -64,7 +66,7 @@
             var bars = svg.selectAll("rect")
                 .data(data);
 
-            // Enter selection - create new bars
+            // Create new bars
             bars.enter()
                 .append("rect")
                 .attr("x", function(d, i) { return xScale(i); })
@@ -72,7 +74,7 @@
                 .attr("width", xScale.bandwidth())
                 .attr("height", function(d) { return h - yScale(d); });
 
-            // Update selection - update existing bars
+            // Update existing bars
             bars.attr("y", function(d) {
                 return yScale(d);
             })
@@ -95,7 +97,7 @@
                 .attr("y", function(d) { return yScale(d) - 4; }) // Position above the bar
                 //.attr("x", function(d, i) { return xScale(i) + 16; }) 
                 //.attr("y", function(d) { return yScale(d) + 14; })
-                //.attr("fill", "Black")
+                .attr("fill", "Black")
                 .attr("text-anchor", "middle"); // Center the text
 
             // Update existing labels

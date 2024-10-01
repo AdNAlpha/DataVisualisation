@@ -44,6 +44,32 @@ nav ul li a {
     transform: scale(1.13);
     
 }
+
+/* Button Styles */
+button {
+    font-family: Arial, sans-serif;
+    font-size: 14px; /* Reduce font size */
+    padding: 5px 10px; /* Reduce padding */
+    border: 2px solid gray; 
+    border-radius: 12px; /* Smaller rounded corners */
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s, color 0.3s, border-color 0.3s, margin-top 0.3s; /* Smooth transition for top margin */
+    color: gray; /* Default text color */
+    text-align: center;
+    background-color: transparent; /* Transparent background to highlight the border */
+    margin: 20px 2px; /* Adds spacing after h1 */
+    display:flow-root;
+}
+
+/* Hover Effect for All Buttons */
+button:hover {
+    border-color: rgb(0, 255, 251); 
+    color: rgb(0, 255, 251); 
+    transform: scale(1.15); /* Slightly enlarge on hover */
+    background-color: rgba(128, 128, 128, 0.327); 
+}
+
+
 h1 {
     color: rgba(106, 0, 255, 0.822);
     text-shadow: 0 0 25px rgb(0, 255, 251), 0 5px rgb(0, 0, 7);
@@ -93,3 +119,4 @@ p {
     font-size: 20px;
     color: white;
 }
+
