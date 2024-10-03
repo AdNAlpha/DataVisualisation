@@ -141,6 +141,13 @@
                 drawBars(dataset);
             });
 
+            d3.select("#RemoveButton")
+            .on("click", function(){
+                dataset.pop; 
+                drawBars(dataset);
+
+            })
+
 
 
 

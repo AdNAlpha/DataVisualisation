@@ -7,7 +7,7 @@
     <meta name="keywords" content="HTML, CSS" />
     <meta name="author" content="Adnaan Ayaz Shaikh" />
 
-    <title>Task 2.2 D3 Data Binding</title>
+    <title>Task 6.1 D3 Mouse Over</title>
     <script src="https://d3js.org/d3.v7.min.js"></script>
 
     <link rel="stylesheet" href="styles/stylesheet.css">
@@ -24,7 +24,7 @@
         </nav>
     </header>
 
-    <h1><b>Updates and Transitions</b></h1>
+    <h1><b>Mouse Over</b></h1>
 
     <!-- Add Button -->
     <button id="AddButton">Add</button>
@@ -60,7 +60,9 @@
             .attr("height", h + margin.top + margin.bottom)
             .append("g")
             .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
-            .attr("fill", "rgb(106, 90, 205)");
+            .attr("fill", "slategrey");
+           
+
 
         // Function to draw the bars
         function drawBars(data) {
@@ -72,9 +74,34 @@
             bars.enter()
                 .append("rect")
                 .attr("x", w)
+
+                // mouse over to show orange
+                .on("mouseover", function(event, d){
+                    var xPosition = parseFloat(d3.select(this).attr("fill", "orange").attr("x")) + xScale.bandwidth()/4;
+                    var yPosition = parseFloat(d3.select(this).attr("fill", "orange").attr("y")) - 3.3;
+
+                    // append text 
+                    svg.append("text")
+                    .attr("id", "tooltip")
+                    .attr("x", xPosition)
+                    .attr("y", yPosition)
+                    .text(d)
+                    .attr("fill", "black");
+                })
+
+                //mouse out to show slategrey
+                .on("mouseout", function(event, d){
+                    d3.select(this)
+                    .attr("fill", "slategrey")
+
+                    d3.select("#tooltip").remove();
+                })
+
                 .merge(bars)
                 .transition()
                 .duration(500)
+                
+
                 .attr("x", function(d, i) 
                     { return xScale(i); })
 
@@ -86,6 +113,13 @@
                 .attr("height", function(d) 
                     { return h - yScale(d); });
 
+            // Tooltip
+            svg.selectAll("rect")
+                .append("title")
+                .text(function(d){
+                    return +d;
+                })
+
             // Remove old bars
             bars.exit()
                 .transition()
@@ -96,28 +130,6 @@
             // Bind and update labels
             var labels = svg.selectAll("text")
                 .data(data);
-
-            // Create new labels
-            labels.enter()
-                .append("text")
-                .merge(labels)
-                .transition()
-                .duration(500)
-                .text(function(d)
-                     { return d; })
-
-                .attr("x", function(d, i) 
-                    { return xScale(i) + xScale.bandwidth() / 2; })
-
-                .attr("y", function(d) 
-                    { return yScale(d) - 4; })
-
-                .attr("fill", "Black")
-                .attr("text-anchor", "middle");
-
-            // Remove old labels
-            labels.exit()
-                .remove();
         }
 
         // Initial drawing of the bars
