@@ -63,12 +63,18 @@ h2 {
 
 footer {
     clear: both;
-    font-size: 25px;
+    font-size: 18px;
     background-color: #393939;
-    padding: 0.5em 0;
-    background-repeat: repeat-x;
-    background-position: bottom;
+    padding: 20px;
     color: white;
+    text-align: center;
+    width: 100%;
+    max-width: 1220px; /* Ensure the footer aligns with the content width */
+    margin: 0 auto; /* Center the footer */
+    position: absolute; /* Absolute positioning for flexibility */
+    left: 0;
+    right: 0;
+    bottom: 0;
 }
 
 img {
