@@ -140,7 +140,8 @@
                 // Redraw the bars with the updated dataset
                 drawBars(dataset);
             });
-
+            
+            // Remove button 
             d3.select("#RemoveButton")
             .on("click", function(){
                 dataset.pop(); 

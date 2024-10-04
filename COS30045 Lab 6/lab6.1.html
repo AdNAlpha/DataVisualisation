@@ -152,6 +152,14 @@
                 drawBars(dataset);
             });
 
+             // Remove button 
+             d3.select("#RemoveButton")
+            .on("click", function(){
+                dataset.pop(); 
+                drawBars(dataset);
+
+            })
+
     </script>
 
     <footer>
