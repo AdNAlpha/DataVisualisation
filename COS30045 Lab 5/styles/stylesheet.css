@@ -2,10 +2,17 @@ body {
     background: rgb(238,174,202);
     background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
     font-family: Arial, sans-serif; 
+    height: 100%;
     margin: 0 auto;
     max-width: 1220px; /* Center content by limiting the max width */
     padding: 20px; 
     box-shadow: 0 0 0 1px #ffffff inset;
+
+}
+
+main{
+    flex: 1;
+    padding:20px
 }
 
 header {
@@ -95,19 +102,9 @@ footer {
     background-repeat: repeat-x;
     background-position: bottom;
     color: white;
+    margin-top: auto;
 }
 
-img {
-    max-width: 100%;
-}
-
-#figure1, #figure2, #figure3 {
-    float: left;
-    width: 30%;
-    text-align: justify;
-    margin: 0 10px; /* Adjust margin to control space between images */
-    padding: 10px;
-}
 p {
     clear: both;
     font-size: 25px;
@@ -115,8 +112,4 @@ p {
     
 }
 
-#points {
-    font-size: 20px;
-    color: white;
-}
 
