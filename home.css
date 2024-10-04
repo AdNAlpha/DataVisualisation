@@ -86,3 +86,24 @@ ul li a {
     margin: 20px auto;
     width: 70%;
 }
+
+/* Base styles for buttons */
+ul li a {
+    display: block;
+    font-weight: bold;
+    padding: 10px 15px; /* Adjust padding for spacing */
+    color: #000;
+    text-decoration: none;
+    border-radius: 15px; /* Base rounded corners */
+    transition: all 0.3s ease; /* Smooth transition */
+    text-align: center; 
+}
+
+/* Hover effect for buttons */
+ul li a:hover {
+    background-color: rgba(100, 100, 255, 0.5); 
+    color: white; /* Change text color on hover */
+    border-radius: 30px; /* Increase roundness for a more oval shape */
+    transform: scale(1.1); /* Slightly enlarge the button */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); 
+}

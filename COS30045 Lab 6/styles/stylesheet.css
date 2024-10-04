@@ -69,6 +69,7 @@ button:hover {
     color: rgb(0, 255, 251); 
     transform: scale(1.15); /* Slightly enlarge on hover */
     background-color: rgba(128, 128, 128, 0.327); 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Add shadow effect */
 }
 
 
