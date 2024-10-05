@@ -71,6 +71,12 @@ button:hover {
     background-color: rgba(128, 128, 128, 0.327); 
 }
 
+/* Container for buttons */
+.button-container {
+    display: flex;
+    gap: 10px; /* Add spacing between buttons */
+}
+
 
 h1 {
     color: rgba(106, 0, 255, 0.822);
