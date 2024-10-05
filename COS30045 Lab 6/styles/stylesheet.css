@@ -60,7 +60,6 @@ button {
     text-align: center;
     background-color: transparent; /* Transparent background to highlight the border */
     margin: 20px 2px; /* Adds spacing after h1 */
-    display:flow-root;
 }
 
 /* Hover Effect for All Buttons */
@@ -70,6 +69,12 @@ button:hover {
     transform: scale(1.15); /* Slightly enlarge on hover */
     background-color: rgba(128, 128, 128, 0.327); 
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Add shadow effect */
+}
+
+/* Container for buttons */
+.button-container {
+    display: flex;
+    gap: 10px; /* Add spacing between buttons */
 }
 
 

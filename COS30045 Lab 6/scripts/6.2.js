@@ -30,6 +30,30 @@ function init() {
         .attr("fill", "slategrey");
        
 
+    // Sort Ascending 
+    var sortBars = function(){
+            svg1.selectAll("rect")
+                .sort(function(a, b){
+                        return d3.ascending (a, b); // sort the data in ascending order 
+                })  
+                .attr("x", function(d, i){
+                        return xScale(i); // update the position of the bars 
+                });
+
+    };
+
+    // Sort Decending 
+    var sortBars = function(){
+        svg.selectAll("rect")
+            .sort(function(a, b){
+                    return d3.descending (a, b);
+            })  
+            .attr("x", function(d, i){
+                    return xScale(i);
+            });
+
+    };
+
 
     // Function to draw the bars
     function drawBars(data) {
@@ -126,6 +150,24 @@ function init() {
             drawBars(dataset);
 
         })
+
+        // Track sorting order
+        var isAscending = true;  // Start with ascending order
+
+       // Sort Button click event handler
+        d3.select("#SortButton").on("click", function() {
+        if (isAscending) {
+            dataset.sort(d3.ascending);  // Sort dataset in ascending order
+        } else {
+            dataset.sort(d3.descending);  // Sort dataset in descending order
+        }
+
+        // Redraw bars with the sorted dataset
+        drawBars(dataset);
+
+        // Toggle the sorting order for the next click
+        isAscending = !isAscending;
+    });
 
 }
 
