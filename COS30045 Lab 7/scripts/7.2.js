@@ -14,6 +14,8 @@ function init() {
                 .attr("width", w)
                 .attr("height", h);
 
+
+    // Set up the arcs
     var arc = d3.arc()
             .outerRadius(outerRadius)
             .innerRadius(innerRadius);
