@@ -54,7 +54,6 @@ function init() {
 
     };
 
-
     // Function to draw the bars
     function drawBars(data) {
         // Bind the data to the rectangles
