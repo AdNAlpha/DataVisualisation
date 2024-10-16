@@ -20,12 +20,14 @@ function init() {
     var path = d3.geoPath()
                 .projection(projection);
 
+    //Draw map 
     d3.json("LGA_VIC.json").then(function(json) {
 
         svg.selectAll("path")
             .data(json.features)
             .enter()
             .append("path")
+            .style("stroke","darkgrey")
             .attr("d", path);
     });
 
