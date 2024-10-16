@@ -12,7 +12,7 @@ function init() {
         {apples: 23, oranges: 17, grapes: 43},
     ];
 
-    var keys = ["apples", "oranges", "grapes"];
+    var keys = ["grapes", "oranges", "apples"];
 
     // series
     var series = d3.stack()
@@ -22,10 +22,10 @@ function init() {
     //SVG Body
     var svg = d3.select("body")
         .append("svg")
-        .attr("width", w + margin.left + margin.right)
-        .attr("height", h + margin.top + margin.bottom)
+        .attr("width", w )
+        .attr("height", h )
         .append("g")
-        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+        //.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
     //xScale
     var xScale = d3.scaleBand()
@@ -35,11 +35,15 @@ function init() {
 
     //yScale
     var yScale = d3.scaleLinear()
-        .domain([0, d3.max(dataset, function(d) { return d.apples + d.oranges + d.grapes; })])
+        .domain([0, d3.max(dataset, function(d) 
+            { return d.apples + d.oranges + d.grapes;   
+            })])
         .range([h, 0]);
 
     //Color
-    var color = d3.scaleOrdinal(d3.schemeCategory10);
+    var color = d3.scaleOrdinal()
+                .domain(keys)
+                .range(["#2ca02c", "#ff7f0e", "#1f77b4"]); // grapes(green), oranges(orange) , apples(blue)
 
     // Groups SetUp
     var groups = svg.selectAll("g.layer")
