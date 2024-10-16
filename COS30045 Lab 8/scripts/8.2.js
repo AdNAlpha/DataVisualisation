@@ -6,7 +6,8 @@ function init() {
     d3.csv("VIC_LGA_unemployment.csv").then(function(data) {
         
         // Load the Map 
-        d3.json("LGA_VIC.json").then(function(json) {
+        d3.json("https://raw.githubusercontent.com/AdNAlpha/DataVisualisation/refs/heads/main/COS30045%20Lab%208/LGA_VIC.json")
+        .then(function(json) {
 
             // Loop through the CSV data
             for (var i = 0; i < data.length; i++) {

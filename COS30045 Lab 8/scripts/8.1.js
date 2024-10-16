@@ -21,8 +21,9 @@ function init() {
                 .projection(projection);
 
     //Draw map 
-    d3.json("LGA_VIC.json").then(function(json) {
-
+    d3.json("https://raw.githubusercontent.com/AdNAlpha/DataVisualisation/refs/heads/main/COS30045%20Lab%208/LGA_VIC.json")
+    .then(function(json) {
+        
         svg.selectAll("path")
             .data(json.features)
             .enter()
@@ -30,7 +31,5 @@ function init() {
             .style("stroke","darkgrey")
             .attr("d", path);
     });
-
-    
 }
 window.onload = init;
