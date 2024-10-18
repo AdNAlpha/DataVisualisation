@@ -74,7 +74,7 @@ function init() {
                         // Convert latitude to Y coordinate
                         return projection([d.lon, d.lat])[1];
                     })
-                    .attr("r", 4) // Size of the circles
+                    .attr("r", 7) // Size of the circles
                     .attr("fill", "red") // Color of the circles
                     .attr("stroke", "black")
                     .append("title") // Tooltip for the city names
