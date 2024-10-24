@@ -65,6 +65,36 @@ function init() {
         .attr("y", function(d) { return yScale(d[1]); })
         .attr("height", function(d) { return yScale(d[0]) - yScale(d[1]); })
         .attr("width", xScale.bandwidth());
+
+    // Adding Legend
+    var legend = svg.selectAll(".legend")
+        .data(keys)
+        .enter()
+        .append("g")
+        .attr("class", "legend")
+        .attr("transform", function(d, i) {
+            return "translate(" + (w + 20) + "," + (i * 20) + ")";  // Positioning legend items
+        });
+
+    // Colored rectangles in legend
+    legend.append("rect")
+        .attr("x", 0)
+        .attr("y", 0)
+        .attr("width", 15)
+        .attr("height", 15)
+        .style("fill", function(d) { return color(d); });
+
+    // Custom Text labels in legend
+    legend.append("text")
+        .attr("x", 20)
+        .attr("y", 12)  // Adjust y for proper alignment
+        .text(function(d) {
+            if (d === "grapes") return "Grapes (Blue)";
+            else if (d === "oranges") return "Oranges (Orange)";
+            else if (d === "apples") return "Apples (Green)";
+        })
+        .style("font-size", "12px")
+        .attr("alignment-baseline", "middle");
 }
 
 window.onload = init;
